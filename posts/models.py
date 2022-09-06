@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class Article(models.Model):
     STATUS_OF_ARTICLES = (
         ("checking", "Checking"),
-        ("rejected", "Rejected"),
+        ("rejected", "Rejected"), 
         ("published", "Published")
     )
 
