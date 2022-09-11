@@ -1,0 +1,7 @@
+<h1>Blog list</h1>
+<hr>
+<ul>
+    {% for article in articles %}
+      <li>{{article.title}} - {{article.author}}</li>
+    {% endfor %}
+</ul>

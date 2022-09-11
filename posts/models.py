@@ -2,6 +2,10 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 
+class PublishedManager(models.Manager):
+    def get_queryset(self):
+        return super(PublishedManager, self).get_queryset().filter(status="published")
+
 class Article(models.Model):
     STATUS_OF_ARTICLES = (
         ("checking", "Checking"),
@@ -21,3 +25,6 @@ class Article(models.Model):
     
     def __str__(self) -> str:
         return f"{self.title} writed by {self.author}"
+    
+    objects = models.Manager()
+    publish = PublishedManager()

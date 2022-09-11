@@ -12,7 +12,7 @@ class ArticleAdmin(admin.ModelAdmin):
             "fields" : ("created", "edited")
         }),
         ("Conetnt", {
-            "fields" : ("content",)
+            "fields" : ("content", "status")
         })
     )
     
