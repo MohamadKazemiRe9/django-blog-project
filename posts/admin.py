@@ -6,7 +6,7 @@ from .models import Article
 class ArticleAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {
-            "fields" : ("title","author")
+            "fields" : ("title","author", "slug")
         }),
         ("Important dates", {
             "fields" : ("created", "edited")
@@ -16,7 +16,7 @@ class ArticleAdmin(admin.ModelAdmin):
         })
     )
     
-    readonly_fields = ("created", "edited")
+    readonly_fields = ("created", "edited", "slug")
 
     list_display = ["title", "author", "status"]
     list_filter = ("status",)

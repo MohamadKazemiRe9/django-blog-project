@@ -2,6 +2,8 @@
 <hr>
 <ul>
     {% for article in articles %}
-      <li>{{article.title}} - {{article.author}}</li>
+      <li>
+        <a href="{{ article.get_absolute_url }}">{{article.title}} - {{article.author}}</a>
+      </li>
     {% endfor %}
 </ul>
