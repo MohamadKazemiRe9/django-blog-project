@@ -4,14 +4,14 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.utils.text import slugify
 from datetime import datetime
-from django.urls import reverse
+from django.urls import reverse 
 
 class PublishedManager(models.Manager):
     def get_queryset(self):
         return super(PublishedManager, self).get_queryset().filter(status="published")
 
 class Article(models.Model):
-    STATUS_OF_ARTICLES = (
+    STATUS_OF_ARTICLES = ( 
         ("checking", "Checking"),
         ("rejected", "Rejected"), 
         ("published", "Published")
@@ -24,6 +24,7 @@ class Article(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="Articles")
     status = models.CharField(max_length=12, choices=STATUS_OF_ARTICLES, default="checking")
     slug = models.SlugField(unique=True, null=True)
+    image = models.ImageField(upload_to="images/%Y/%m/%d", blank=True, null=True)
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
@@ -43,4 +44,4 @@ class Article(models.Model):
     
 
     objects = models.Manager()
-    publish = PublishedManager()
+    publish = PublishedManager() 

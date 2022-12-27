@@ -6,7 +6,7 @@ from .models import Article
 class ArticleAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {
-            "fields" : ("title","author", "slug")
+            "fields" : ("title","author", "slug", "image")
         }),
         ("Important dates", {
             "fields" : ("created", "edited")
