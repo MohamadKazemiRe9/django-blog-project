@@ -33,6 +33,9 @@
 						<div class="col-md-7">
 							<div class="card-block">
 								<h2 class="card-title"><a href="post.html">{{article.title}}</a></h2>
+								{% if article.created|isnew %}
+								NEW
+								{% endif %}
 								<h4 class="card-text">{{article.content|truncatewords:20}}</h4>
 								<div class="metafooter">
 									<div class="wrapfooter">
